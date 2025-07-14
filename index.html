@@ -1,0 +1,1314 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Coffee and Liver Health: A Scientific Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        :root {
+            --espresso: #3c2f2f;
+            --coffee: #6f4e37;
+            --cream: #f5f5dc;
+            --light-cream: #fefefe;
+            --muted-brown: #8b7355;
+            --accent-gold: #d4af37;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-cream);
+            color: var(--espresso);
+            line-height: 1.7;
+        }
+        
+        .serif {
+            font-family: 'Crimson Text', serif;
+        }
+        
+        .hero-title {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            color: var(--espresso);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(180deg, var(--espresso) 0%, var(--coffee) 100%);
+            color: var(--cream);
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 2rem 1.5rem;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.2);
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--espresso);
+            border-bottom: 3px solid var(--accent-gold);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .subsection-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            color: var(--coffee);
+            margin: 2.5rem 0 1.5rem 0;
+        }
+        
+        .citation-link {
+            background: var(--accent-gold);
+            color: var(--espresso);
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85em;
+            transition: all 0.2s ease;
+        }
+        
+        .citation-link:hover {
+            background: var(--coffee);
+            color: var(--cream);
+            transform: translateY(-1px);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--cream) 0%, #f8f8f5 100%);
+            border-left: 4px solid var(--accent-gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--cream);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-color: var(--accent-gold);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--coffee);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--muted-brown);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .toc-link {
+            display: block;
+            color: var(--cream);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .toc-link:hover {
+            color: var(--accent-gold);
+            padding-left: 0.5rem;
+        }
+        
+        .toc-link.active {
+            color: var(--accent-gold);
+            font-weight: 600;
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 0.75rem;
+        }
+        
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            min-height: 300px;
+            max-height: 800px;
+            background: var(--light-cream);
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mermaid-container .mermaid {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            cursor: grab;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mermaid-container .mermaid svg {
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .mermaid-container .mermaid:active {
+            cursor: grabbing;
+        }
+
+        .mermaid-container.zoomed .mermaid {
+            height: 100%;
+            width: 100%;
+            cursor: grab;
+        }
+
+        .mermaid-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mermaid-control-btn {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 14px;
+            min-width: 36px;
+            height: 36px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mermaid-control-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .mermaid-control-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Mermaid theme customization for better contrast */
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon {
+            fill: var(--cream) !important;
+            stroke: var(--coffee) !important;
+            stroke-width: 2.5px !important;
+        }
+        
+        .mermaid .node .label {
+            color: var(--espresso) !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+        
+        .mermaid .edgePath .path {
+            stroke: var(--coffee) !important;
+            stroke-width: 2.5px !important;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+        }
+        
+        .mermaid .edgeLabel {
+            background-color: var(--light-cream) !important;
+            color: var(--espresso) !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 500 !important;
+            border: 2px solid var(--coffee) !important;
+            border-radius: 6px !important;
+            padding: 4px 8px !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        }
+        
+        .mermaid .marker {
+            fill: var(--coffee) !important;
+            stroke: var(--coffee) !important;
+        }
+        
+        /* Enhanced contrast for different node types with harmonious palette */
+        .mermaid .node:nth-child(4n+1) rect,
+        .mermaid .node:nth-child(4n+1) circle,
+        .mermaid .node:nth-child(4n+1) ellipse,
+        .mermaid .node:nth-child(4n+1) polygon {
+            fill: #fef7ed !important;
+            stroke: #ea580c !important;
+            stroke-width: 3px !important;
+        }
+        
+        .mermaid .node:nth-child(4n+2) rect,
+        .mermaid .node:nth-child(4n+2) circle,
+        .mermaid .node:nth-child(4n+2) ellipse,
+        .mermaid .node:nth-child(4n+2) polygon {
+            fill: #eff6ff !important;
+            stroke: #2563eb !important;
+            stroke-width: 3px !important;
+        }
+        
+        .mermaid .node:nth-child(4n+3) rect,
+        .mermaid .node:nth-child(4n+3) circle,
+        .mermaid .node:nth-child(4n+3) ellipse,
+        .mermaid .node:nth-child(4n+3) polygon {
+            fill: #f0fdf4 !important;
+            stroke: #16a34a !important;
+            stroke-width: 3px !important;
+        }
+        
+        .mermaid .node:nth-child(4n+4) rect,
+        .mermaid .node:nth-child(4n+4) circle,
+        .mermaid .node:nth-child(4n+4) ellipse,
+        .mermaid .node:nth-child(4n+4) polygon {
+            fill: #faf5ff !important;
+            stroke: #9333ea !important;
+            stroke-width: 3px !important;
+        }
+        
+    @media (max-width: 1024px) {
+        .toc-fixed {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            width: 280px;
+        }
+        
+        .toc-fixed.open {
+            transform: translateX(0);
+        }
+        
+        .main-content {
+            margin-left: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .main-content.toc-open {
+            transform: translateX(280px);
+        }
+        
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .mermaid-control-btn:not(.reset-zoom) {
+        display: none;
+    }
+    .mermaid-controls {
+        top: auto;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mermaid-container {
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .subsection-title {
+                font-size: 1.5rem;
+            }
+            
+            .px-8 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .p-8 {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+  </head>
+
+  <body>
+    <!-- Table of Contents -->
+    <nav class="toc-fixed">
+      <div class="mb-8">
+        <h3 class="text-xl font-bold mb-4 text-gold-400">Contents</h3>
+      </div>
+      <a href="#overview" class="toc-link">Overview</a>
+      <a href="#protective-role" class="toc-link">Protective Role Against Liver Diseases</a>
+      <a href="#liver-function" class="toc-link">Impact on Liver Function</a>
+      <a href="#mechanisms" class="toc-link">Protective Mechanisms</a>
+      <a href="#bioactive-compounds" class="toc-link">Key Bioactive Compounds</a>
+      <a href="#major-studies" class="toc-link">Major Studies &amp; Meta-Analyses</a>
+      <a href="#conclusion" class="toc-link">Conclusion &amp; Future Directions</a>
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button id="mobile-menu-toggle" class="lg:hidden fixed top-4 left-4 z-50 bg-espresso text-cream p-3 rounded-lg shadow-lg">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="min-h-screen bg-gradient-to-br from-cream via-white to-cream p-8">
+        <div class="max-w-6xl mx-auto">
+          <!-- Hero Grid -->
+          <div class="hero-grid grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+            <!-- Left Column: Title and Key Highlights -->
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <h1 class="hero-title">Coffee and Liver Health: A Scientific Review</h1>
+                <p class="text-xl text-muted-brown font-light">Exploring the hepatoprotective effects of coffee consumption through evidence-based research</p>
+              </div>
+
+              <div class="highlight-box">
+                <h3 class="text-xl font-bold text-espresso mb-4">Key Findings</h3>
+                <ul class="space-y-2 text-coffee">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-accent-gold mr-3 mt-1"></i>
+                    <span>35% reduced risk of liver fibrosis with regular coffee consumption</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-accent-gold mr-3 mt-1"></i>
+                    <span>44% reduced cirrhosis risk per 2 additional cups daily</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-accent-gold mr-3 mt-1"></i>
+                    <span>35% lower hepatocellular carcinoma risk</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-accent-gold mr-3 mt-1"></i>
+                    <span>Improved liver enzyme profiles and histology</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right Column: Visual Element -->
+            <div class="relative">
+              <img src="https://kimi-web-img.moonshot.cn/img/www.aicr.org/91e601191fcfc1dd7b6144b7636b83df89d51b71.jpg" alt="Laboratory research on coffee and liver health" class="w-full h-96 object-cover rounded-2xl shadow-2xl" size="large" aspect="wide" style="photo" query="coffee liver health laboratory research" referrerpolicy="no-referrer" data-modified="1" data-score="11598.00"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-espresso/30 to-transparent rounded-2xl"></div>
+            </div>
+          </div>
+
+          <!-- Key Statistics -->
+          <div class="stats-grid mt-16">
+            <div class="stat-card">
+              <span class="stat-number">35%</span>
+              <span class="stat-label">Reduced HCC Risk</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">44%</span>
+              <span class="stat-label">Lower Cirrhosis Risk</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">35%</span>
+              <span class="stat-label">Decreased Fibrosis Odds</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">400mg</span>
+              <span class="stat-label">Effective Daily Caffeine Dose</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Article Content -->
+      <article class="max-w-4xl mx-auto px-8 py-16 space-y-16">
+
+        <!-- Overview Section -->
+        <section id="overview" class="scroll-mt-24">
+          <h2 class="section-title">Overview</h2>
+          <p class="text-lg leading-relaxed mb-6">
+            Extensive research indicates that <strong>coffee consumption is generally beneficial for liver health</strong>. It has been associated with a <strong>reduced risk of several liver diseases</strong>, including <strong>non-alcoholic fatty liver disease (NAFLD)</strong>, <strong>liver fibrosis</strong>, <strong>cirrhosis</strong>, and <strong>hepatocellular carcinoma (HCC)</strong>. Coffee also appears to <strong>improve overall liver function</strong> and <strong>reduce levels of liver enzymes</strong>, which are markers of liver damage.
+          </p>
+
+          <div class="highlight-box">
+            <p class="mb-4">
+              The protective effects are attributed to various bioactive compounds in coffee, such as <strong>caffeine, chlorogenic acids, and diterpenes</strong>, which exert <strong>antioxidant, anti-inflammatory, antifibrotic, metabolic modulatory, and anticarcinogenic actions</strong>.
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>
+            </p>
+          </div>
+        </section>
+
+        <!-- Protective Role Section -->
+        <section id="protective-role" class="scroll-mt-24">
+          <h2 class="section-title">Coffee&#39;s Protective Role Against Specific Liver Diseases</h2>
+
+          <div class="space-y-12">
+            <!-- NAFLD and Fibrosis -->
+            <div>
+              <h3 class="subsection-title">Non-Alcoholic Fatty Liver Disease (NAFLD) and Liver Fibrosis</h3>
+              <p class="mb-4">
+                Coffee consumption has been increasingly recognized for its potential protective effects against non-alcoholic fatty liver disease (NAFLD) and its progression to liver fibrosis. Epidemiological studies spanning the last two decades consistently show an <strong>inverse relationship between coffee intake and the risk of various liver conditions, including NAFLD</strong>
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>.
+              </p>
+
+              <p class="mb-4">
+                A meta-analysis by Ebadi et al. (2021) found that while coffee consumption was <strong>not significantly associated with NAFLD incidence</strong> (RR 0.88, 95% CI 0.63–1.25, p = 0.48) or <strong>prevalence</strong> (RR 0.88, 95% CI 0.76–1.02, p = 0.09), it was <strong>significantly associated with a 35% decreased odds of significant liver fibrosis</strong> (RR 0.65, 95% CI 0.54–0.78, p &lt; 0.00001) <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8471033/" class="citation-link" target="_blank">[13]</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/34578919/" class="citation-link" target="_blank">[31]</a>. </p>
+
+                  <div class="highlight-box">
+                    <h4 class="font-bold text-espresso mb-3">Key Finding</h4>
+                    <p>This suggests that coffee may play a more crucial role in mitigating the progression of NAFLD rather than preventing its initial development. The protective effect against fibrosis was observed consistently across different study designs and populations.</p>
+                  </div>
+            </div>
+
+            <!-- Liver Cirrhosis -->
+            <div>
+              <h3 class="subsection-title">Liver Cirrhosis</h3>
+              <p class="mb-4">
+                Coffee consumption has demonstrated a <strong>significant inverse association with the risk and progression of liver cirrhosis</strong>, a late-stage liver disease characterized by extensive scarring and loss of liver function. A systematic review and meta-analysis by Kennedy et al. (2016) found that an <strong>increase in daily coffee consumption of two cups was associated with a pooled relative risk (RR) of cirrhosis of 0.56</strong> (95% CI 0.44-0.68), suggesting a <strong>44% reduction in risk</strong>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/26806124/" class="citation-link" target="_blank">[61]</a>.
+              </p>
+
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <span class="stat-number">0.47</span>
+                  <span class="stat-label">Odds Ratio (1 cup/day)</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-number">0.16</span>
+                  <span class="stat-label">Odds Ratio (4 cups/day)</span>
+                </div>
+              </div>
+
+              <p class="mb-4">
+                An important trial indicated that the <strong>consumption of a single cup of coffee per day offered an odds ratio of 0.47 for the risk of cirrhosis, while four cups offered an odds ratio of 0.16</strong> in patients with chronic liver disease, compared to non-coffee consumers <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5885142/" class="citation-link" target="_blank">[5]</a>. This substantial risk reduction underscores the potential of coffee as a preventive measure.
+              </p>
+            </div>
+
+            <!-- HCC -->
+            <div>
+              <h3 class="subsection-title">Hepatocellular Carcinoma (HCC) / Liver Cancer</h3>
+              <p class="mb-4">
+                Coffee consumption has emerged as a <strong>significant protective factor against the development of hepatocellular carcinoma (HCC)</strong>, the most common form of primary liver cancer. A significant systematic review and dose-response meta-analysis by Kennedy et al. (2017) found that an <strong>extra two cups of coffee per day was associated with a 35% reduced risk of HCC</strong> (Relative Risk [RR] 0.65, 95% Confidence Interval [CI] 0.59 to 0.72)
+                <a href="https://bmjopen.bmj.com/content/7/5/e013739" class="citation-link" target="_blank">[40]</a>, <a href="https://bmjopen.bmj.com/content/7/5/e013739" class="citation-link" target="_blank">[115]</a>.
+              </p>
+
+              <div class="highlight-box">
+                <h4 class="font-bold text-espresso mb-3">Mechanism Insight</h4>
+                <p><strong>Caffeine is a key candidate</strong>, with research suggesting it may <strong>inhibit the activation of the NLRP3 inflammasome</strong>, a protein complex involved in inflammation and cancer development. By alleviating chronic inflammation in the liver, caffeine could substantially reduce the incidence of HCC <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9623052/" class="citation-link" target="_blank">[16]</a>.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Liver Function Section -->
+        <section id="liver-function" class="scroll-mt-24">
+          <h2 class="section-title">Coffee&#39;s Impact on Overall Liver Function and Liver Enzymes</h2>
+
+          <div class="space-y-12">
+            <!-- Enzyme Reduction -->
+            <div>
+              <h3 class="subsection-title">Reduction in Liver Enzyme Levels (ALT, AST, GGT)</h3>
+              <p class="mb-4">
+                Coffee consumption has been consistently associated with <strong>favorable effects on liver enzyme levels</strong>, which are key biomarkers of liver health and injury. A meta-analysis examining liver enzymes in 222,067 coffee drinkers found that <strong>high coffee consumption was associated with decreased liver enzymes, particularly AST (SGOT)</strong>
+                <a href="https://www.nature.com/articles/s41598-024-79929-4" class="citation-link" target="_blank">[1]</a>, <a href="https://www.nature.com/articles/s41598-024-79929-4" class="citation-link" target="_blank">[65]</a>.
+              </p>
+
+              <p class="mb-4">
+                A clinical trial involving cirrhotic patients found that <strong>400 mg of caffeine per day for eight weeks led to a significant decrease in AST levels</strong> compared to a placebo group <a href="https://www.sciencedirect.com/science/article/pii/S2405844024171691" class="citation-link" target="_blank">[25]</a>. Similarly, a study by Degertekin et al. (2020) involving patients with NAFLD and NASH found that <strong>liver histopathology was significantly better in patients with long-term, regular coffee consumption</strong>
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9349493/" class="citation-link" target="_blank">[8]</a>.
+              </p>
+            </div>
+
+            <!-- Liver Histology -->
+            <div>
+              <h3 class="subsection-title">Improvement in Liver Histology</h3>
+              <p class="mb-4">
+                Beyond influencing liver enzyme levels, <strong>coffee consumption has also been linked to improvements in liver histology</strong>, particularly in the context of non-alcoholic fatty liver disease (NAFLD) and its more severe form, non-alcoholic steatohepatitis (NASH). A study by Degertekin et al. (2020) found that <strong>liver histopathology was significantly better in patients with long-term, regular coffee consumption</strong>
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9349493/" class="citation-link" target="_blank">[8]</a>.
+              </p>
+
+              <div class="highlight-box">
+                <h4 class="font-bold text-espresso mb-3">Clinical Significance</h4>
+                <p>This finding is significant because it moves beyond surrogate markers like enzyme levels to demonstrate a direct impact on liver pathology. The study noted that histological improvements were more prominent in individuals who consumed coffee daily for more than five years, indicating a potential cumulative protective effect.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Mechanisms Section -->
+        <section id="mechanisms" class="scroll-mt-24">
+          <h2 class="section-title">Mechanisms Behind Coffee&#39;s Liver-Protective Effects</h2>
+
+          <div class="space-y-12">
+            <!-- Antioxidant Properties -->
+            <div>
+              <h3 class="subsection-title">Antioxidant Properties</h3>
+              <p class="mb-4">
+                Coffee is a <strong>rich source of various bioactive compounds with potent antioxidant properties</strong>, which play a crucial role in its liver-protective effects. Coffee contains a diverse array of antioxidant compounds, including <strong>caffeine, chlorogenic acids, and melanoidins</strong>
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[46]</a>.
+              </p>
+
+              <div class="highlight-box">
+                <h4 class="font-bold text-espresso mb-3">Mechanism Details</h4>
+                <p>Chlorogenic acids, which are polyphenolic compounds, are particularly notable for their strong antioxidant activity. They help <strong>neutralize harmful free radicals and reduce oxidative damage to liver cells</strong>. The antioxidant capacity of coffee helps to <strong>mitigate liver damage by reducing the formation of ROS and enhancing the body&#39;s natural antioxidant defenses</strong>
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Anti-inflammatory Effects -->
+            <div>
+              <h3 class="subsection-title">Anti-inflammatory Effects</h3>
+              <p class="mb-4">
+                <strong>Chronic inflammation is a central pathological process</strong> in the development and progression of virtually all liver diseases. Coffee consumption has been shown to exert <strong>significant anti-inflammatory effects</strong>, which contribute substantially to its liver-protective benefits. Coffee contains numerous bioactive compounds, such as <strong>caffeine, chlorogenic acids, and diterpenes (cafestol and kahweol)</strong>, that can modulate inflammatory pathways within the liver <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>.
+              </p>
+
+              <p class="mb-4">
+                A clinical trial in cirrhotic patients found that <strong>400 mg/day of caffeine resulted in a significant reduction in inflammatory biomarkers</strong> (hs-CRP, IL-6, TNF-α) and an improvement in liver fibrosis scores <a href="https://www.sciencedirect.com/science/article/pii/S2405844024171691" class="citation-link" target="_blank">[25]</a>.
+              </p>
+            </div>
+
+            <!-- Metabolic Modulation -->
+            <div>
+              <h3 class="subsection-title">Metabolic Modulation</h3>
+              <p class="mb-4">
+                Coffee consumption has been shown to exert <strong>beneficial effects on various metabolic pathways</strong>, which contributes significantly to its protective role in liver health, particularly in conditions like non-alcoholic fatty liver disease (NAFLD). One of the key mechanisms involves the <strong>modulation of energy homeostasis, partly through the activation of AMP-activated protein kinase (AMPK)</strong>
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[77]</a>.
+              </p>
+
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <span class="stat-number">AMPK</span>
+                  <span class="stat-label">Activation Pathway</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-number">↑ FA Oxidation</span>
+                  <span class="stat-label">Fatty Acid Metabolism</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-number">↓ Lipogenesis</span>
+                  <span class="stat-label">Fat Synthesis</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-number">↑ Insulin Sensitivity</span>
+                  <span class="stat-label">Glucose Control</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bioactive Compounds Section -->
+        <section id="bioactive-compounds" class="scroll-mt-24">
+          <h2 class="section-title">Key Bioactive Compounds in Coffee</h2>
+
+          <div class="space-y-12">
+            <!-- Caffeine -->
+            <div>
+              <h3 class="subsection-title">Caffeine</h3>
+              <p class="mb-4">
+                <strong>Caffeine is one of the most well-known and extensively studied bioactive compounds in coffee</strong>, and it plays a significant role in many of coffee&#39;s liver-protective effects <a href="https://www.webmd.com/fatty-liver-disease/coffee-help-liver" class="citation-link" target="_blank">[4]</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5885142/" class="citation-link" target="_blank">[5]</a>. One of the proposed mechanisms for its antifibrotic effect involves its metabolite, <strong>paraxanthine, which may slow the growth of scar tissue</strong> involved in fibrosis <a href="https://www.webmd.com/fatty-liver-disease/coffee-help-liver" class="citation-link" target="_blank">[4]</a>, <a href="https://www.coffeeandhealth.org/health/liver-function/potential-mechanisms" class="citation-link" target="_blank">[129]</a>.
+              </p>
+
+              <div class="highlight-box">
+                <h4 class="font-bold text-espresso mb-3">Adenosine Receptor Antagonism</h4>
+                <p>Caffeine is also an <strong>adenosine receptor antagonist</strong>. Adenosine, which accumulates in injured tissues, can activate hepatic stellate cells (HSCs) – the primary cell type responsible for fibrosis – via A2A adenosine receptors (A2aAR). By blocking these receptors, caffeine can inhibit HSC activation and thereby reduce the production of extracellular matrix proteins that form scar tissue <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4110162/" class="citation-link" target="_blank">[22]</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4110162/" class="citation-link" target="_blank">[71]</a>.</p>
+              </div>
+            </div>
+
+            <!-- Chlorogenic Acids -->
+            <div>
+              <h3 class="subsection-title">Chlorogenic Acids</h3>
+              <p class="mb-4">
+                <strong>Chlorogenic acids (CGAs) are a group of polyphenolic compounds abundantly found in coffee</strong>, and they are recognized for their significant antioxidant and anti-inflammatory properties. These compounds are <strong>potent scavengers of reactive oxygen species (ROS)</strong>, thereby protecting liver cells (hepatocytes) from oxidative damage <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>, <a href="https://www.mdpi.com/2304-8158/13/14/2280" class="citation-link" target="_blank">[28]</a>.
+              </p>
+
+              <p class="mb-4">
+                Beyond their direct antioxidant activity, CGAs are also involved in <strong>modulating glucose and lipid metabolism</strong>. They can improve insulin sensitivity and reduce hepatic lipid accumulation, which are crucial benefits in managing and preventing NAFLD. In the context of liver cancer prevention, <strong>chlorogenic acids have been shown to inhibit carcinogenesis by protecting against DNA damage</strong>
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>.
+              </p>
+            </div>
+
+            <!-- Other Compounds -->
+            <div>
+              <h3 class="subsection-title">Other Compounds (Diterpenes, Melanoidins)</h3>
+              <p class="mb-4">
+                Beyond caffeine and chlorogenic acids, coffee contains a variety of other bioactive compounds that contribute to its complex effects on liver health, including <strong>diterpenes (such as cafestol and kahweol) and melanoidins</strong>
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[46]</a>.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="highlight-box">
+                  <h4 class="font-bold text-espresso mb-3">Diterpenes</h4>
+                  <p>Diterpenes like cafestol and kahweol are found in higher concentrations in unfiltered coffee. These compounds have demonstrated <strong>anti-inflammatory and anticarcinogenic effects</strong>, but may also increase serum cholesterol levels in unfiltered preparations <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9623052/" class="citation-link" target="_blank">[16]</a>.
+                  </p>
+                </div>
+
+                <div class="highlight-box">
+                  <h4 class="font-bold text-espresso mb-3">Melanoidins</h4>
+                  <p><strong>Melanoidins are brown, high molecular weight compounds formed during the Maillard reaction</strong> when coffee beans are roasted. These compounds possess <strong>antioxidant and antimicrobial activities</strong> and may influence gut health through the gut-liver axis <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[10]</a>
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11699235/" class="citation-link" target="_blank">[46]</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Major Studies Section -->
+        <section id="major-studies" class="scroll-mt-24">
+          <h2 class="section-title">Major Studies and Meta-Analyses</h2>
+
+          <div class="overflow-x-auto">
+            <table class="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+              <thead class="bg-espresso text-cream">
+                <tr>
+                  <th class="px-6 py-4 text-left">Condition Studied</th>
+                  <th class="px-6 py-4 text-left">Key Study/Meta-Analysis</th>
+                  <th class="px-6 py-4 text-left">Main Findings</th>
+                  <th class="px-6 py-4 text-left">Citations</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 font-medium">NAFLD &amp; Liver Fibrosis</td>
+                  <td class="px-6 py-4">Ebadi et al. (2021)</td>
+                  <td class="px-6 py-4"><strong>35% decreased odds of significant liver fibrosis</strong> (RR 0.65) with coffee consumption. No significant association with NAFLD incidence or prevalence.</td>
+                  <td class="px-6 py-4">
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/34578919/" class="citation-link" target="_blank">[31]</a>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/34578919/" class="citation-link" target="_blank">[87]</a>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 font-medium">NAFLD &amp; Liver Fibrosis</td>
+                  <td class="px-6 py-4">Hayat et al. (2021)</td>
+                  <td class="px-6 py-4">Coffee drinkers have a <strong>lower risk of developing NAFLD</strong> and a <strong>reduced risk of liver fibrosis</strong> in chronic liver diseases.</td>
+                  <td class="px-6 py-4">
+                    <a href="https://www.researchgate.net/publication/344035781_The_effect_of_coffee_consumption_on_the_non-alcoholic_fatty_liver_disease_and_liver_fibrosis_a_meta-analysis_of_eleven_epidemiological_studies" class="citation-link" target="_blank">[90]</a>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 font-medium">Liver Cirrhosis</td>
+                  <td class="px-6 py-4">Kennedy et al. (2016)</td>
+                  <td class="px-6 py-4"><strong>44% reduced risk of cirrhosis</strong> for every additional two cups of coffee daily (RR 0.56).</td>
+                  <td class="px-6 py-4">
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/26806124/" class="citation-link" target="_blank">[61]</a>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 font-medium">Liver Cirrhosis</td>
+                  <td class="px-6 py-4">Abbas-Hashemi et al. (2025)</td>
+                  <td class="px-6 py-4"><strong>Caffeine supplementation (400 mg/day) significantly improved liver fibrosis scores (FIB-4, APRI)</strong>, reduced inflammatory biomarkers.</td>
+                  <td class="px-6 py-4">
+                    <a href="https://www.sciencedirect.com/science/article/pii/S2405844024171691" class="citation-link" target="_blank">[25]</a>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 font-medium">HCC</td>
+                  <td class="px-6 py-4">Kennedy et al. (2017)</td>
+                  <td class="px-6 py-4"><strong>35% reduced risk of HCC</strong> for an extra two cups of coffee per day (RR 0.65).</td>
+                  <td class="px-6 py-4">
+                    <a href="https://bmjopen.bmj.com/content/7/5/e013739" class="citation-link" target="_blank">[40]</a>
+                    <a href="https://bmjopen.bmj.com/content/7/5/e013739" class="citation-link" target="_blank">[115]</a>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 font-medium">Liver Enzymes</td>
+                  <td class="px-6 py-4">Degertekin et al. (2020)</td>
+                  <td class="px-6 py-4">Coffee consumers had <strong>significantly lower liver enzyme levels (especially ALT)</strong>. Benefits more pronounced with long-term (&gt;5 years) daily consumption.</td>
+                  <td class="px-6 py-4">
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9349493/" class="citation-link" target="_blank">[8]</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="subsection-title">Selected Study Details</h3>
+
+            <div class="space-y-6">
+              <div class="highlight-box">
+                <h4 class="font-bold text-espresso mb-3">Clinical Trial: Abbas-Hashemi et al. (2025)</h4>
+                <p class="mb-3">This randomized, double-blind, placebo-controlled trial involved 50 patients with cirrhosis who received either 400 mg of caffeine daily or a placebo for eight weeks.</p>
+                <ul class="list-disc list-inside space-y-1 text-coffee">
+                  <li>Significant decrease in AST levels (P=0.014)</li>
+                  <li>Increased platelet counts (P=0.002)</li>
+                  <li>Reduced inflammatory biomarkers: hs-CRP (P=0.007), IL-6 (P=0.014), TNF-α (P&lt;0.001)&lt; /li&gt;
+                  </li><li>Improved liver fibrosis indices: FIB-4 (P&lt;0.001), APRI (P&lt;0.001)&lt; /li&gt;
+                </li></ul>
+              </div>
+
+              <div class="highlight-box">
+                <h4 class="font-bold text-espresso mb-3">Meta-Analysis: Kennedy et al. (2017)</h4>
+                <p class="mb-3">This dose-response meta-analysis revealed consistent protective effects across diverse populations:</p>
+                <ul class="list-disc list-inside space-y-1 text-coffee">
+                  <li>35% HCC risk reduction for 2 extra cups daily (RR 0.65)</li>
+                  <li>27% reduction for caffeinated coffee (RR 0.73)</li>
+                  <li>14% reduction for decaffeinated coffee (RR 0.86)</li>
+                  <li>Protection independent of liver disease stage, BMI, alcohol, or hepatitis status</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="scroll-mt-24">
+          <h2 class="section-title">Conclusion and Future Directions</h2>
+
+          <div class="space-y-8">
+            <p class="text-lg leading-relaxed">
+              A substantial body of evidence from epidemiological studies, meta-analyses, and clinical trials indicates that <strong>coffee consumption is generally associated with a range of beneficial effects on liver health</strong>. These benefits include a <strong>reduced risk of developing several chronic liver conditions</strong>, such as non-alcoholic fatty liver disease (NAFLD), liver fibrosis, cirrhosis, and hepatocellular carcinoma (HCC).
+            </p>
+
+            <div class="highlight-box">
+              <h3 class="text-xl font-bold text-espresso mb-4">Key Mechanisms</h3>
+              <p>The hepatoprotective mechanisms of coffee are multifaceted and are attributed to its rich composition of bioactive compounds, including <strong>caffeine, chlorogenic acids, diterpenes, and melanoidins</strong>. These compounds exert <strong>antioxidant, anti-inflammatory, antifibrotic, metabolic modulatory, and anticarcinogenic effects</strong>, which collectively contribute to protecting the liver from various insults and disease progression.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="highlight-box">
+                <h3 class="text-xl font-bold text-espresso mb-4">Future Research Needs</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-flask text-accent-gold mr-3 mt-1"></i>
+                    <span><strong>Large-scale randomized controlled trials</strong> to establish causality</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-flask text-accent-gold mr-3 mt-1"></i>
+                    <span>Determine <strong>optimal type, amount, and preparation</strong> of coffee</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-flask text-accent-gold mr-3 mt-1"></i>
+                    <span>Elucidate <strong>specific contributions of individual compounds</strong></span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-flask text-accent-gold mr-3 mt-1"></i>
+                    <span>Investigate effects in <strong>specific patient populations</strong></span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="highlight-box">
+                <h3 class="text-xl font-bold text-espresso mb-4">Clinical Implications</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-user-md text-accent-gold mr-3 mt-1"></i>
+                    <span>Consider coffee as <strong>dietary intervention</strong> for liver disease prevention</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-user-md text-accent-gold mr-3 mt-1"></i>
+                    <span>Personalized recommendations based on <strong>individual risk factors</strong></span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-user-md text-accent-gold mr-3 mt-1"></i>
+                    <span>Focus on <strong>long-term consumption patterns</strong> for maximum benefit</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-user-md text-accent-gold mr-3 mt-1"></i>
+                    <span>Monitor <strong>potential interactions</strong> with medications</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-espresso to-coffee text-cream p-8 rounded-2xl">
+              <h3 class="text-2xl font-bold mb-4">Final Thoughts</h3>
+              <p class="text-lg leading-relaxed">
+                The consistency of findings across diverse populations and study designs underscores the potential of coffee as a valuable dietary component for maintaining liver health and preventing liver diseases. While more research is needed to establish definitive causal relationships and optimal consumption patterns, the current evidence strongly supports the inclusion of moderate coffee consumption as part of a liver-healthy lifestyle.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Mechanism Diagram -->
+        <section class="my-16">
+          <h3 class="subsection-title text-center mb-8">Coffee&#39;s Hepatoprotective Mechanisms</h3>
+          <div class="mermaid-container">
+            <div class="mermaid-controls">
+              <button class="mermaid-control-btn zoom-in" title="放大">
+                <i class="fas fa-search-plus"></i>
+              </button>
+              <button class="mermaid-control-btn zoom-out" title="缩小">
+                <i class="fas fa-search-minus"></i>
+              </button>
+              <button class="mermaid-control-btn reset-zoom" title="重置">
+                <i class="fas fa-expand-arrows-alt"></i>
+              </button>
+              <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+            <div class="mermaid" id="coffee-mechanisms-diagram">
+              graph TD
+              A[&#34;Coffee Consumption&#34;] --&gt; B[&#34;Bioactive Compounds&#34;]
+              B --&gt; C[&#34;Caffeine&#34;]
+              B --&gt; D[&#34;Chlorogenic Acids&#34;]
+              B --&gt; E[&#34;Diterpenes&#34;]
+              B --&gt; F[&#34;Melanoidins&#34;]
+
+              C --&gt; G[&#34;Antioxidant Effects&#34;]
+              C --&gt; H[&#34;Adenosine Receptor Antagonism&#34;]
+              C --&gt; I[&#34;NLRP3 Inflammasome Inhibition&#34;]
+
+              D --&gt; G
+              D --&gt; J[&#34;AMPK Activation&#34;]
+              D --&gt; K[&#34;DNA Protection&#34;]
+
+              E --&gt; L[&#34;Anti-inflammatory Effects&#34;]
+              E --&gt; M[&#34;Detoxification Enzyme Induction&#34;]
+
+              F --&gt; G
+              F --&gt; N[&#34;Gut Microbiota Modulation&#34;]
+
+              G --&gt; O[&#34;Reduced Oxidative Stress&#34;]
+              H --&gt; P[&#34;HSC Activation Inhibition&#34;]
+              I --&gt; Q[&#34;Reduced Chronic Inflammation&#34;]
+              J --&gt; R[&#34;Improved Lipid Metabolism&#34;]
+              K --&gt; S[&#34;Anticarcinogenic Effects&#34;]
+              L --&gt; Q
+              M --&gt; S
+              N --&gt; T[&#34;Reduced Endotoxin Translocation&#34;]
+
+              O --&gt; U[&#34;Liver Protection&#34;]
+              P --&gt; U
+              Q --&gt; U
+              R --&gt; U
+              S --&gt; U
+              T --&gt; U
+
+              U --&gt; V[&#34;Reduced Risk of:
+              <br/>• NAFLD Progression
+              <br/>• Liver Fibrosis
+              <br/>• Cirrhosis
+              <br/>• HCC&#34;]
+
+              style A fill:#6f4e37,stroke:#3c2f2f,stroke-width:3px,color:#fff
+              style B fill:#f5f5dc,stroke:#6f4e37,stroke-width:3px,color:#3c2f2f
+              style C fill:#d4af37,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style D fill:#d4af37,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style E fill:#d4af37,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style F fill:#d4af37,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style G fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style H fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style I fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style J fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style K fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style L fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style M fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style N fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style O fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style P fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style Q fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style R fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style S fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style T fill:#f5f5dc,stroke:#6f4e37,stroke-width:2px,color:#3c2f2f
+              style U fill:#3c2f2f,stroke:#d4af37,stroke-width:3px,color:#fff
+              style V fill:#6f4e37,stroke:#3c2f2f,stroke-width:3px,color:#fff
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#f5f5dc',
+                primaryTextColor: '#3c2f2f',
+                primaryBorderColor: '#6f4e37',
+                lineColor: '#6f4e37',
+                secondaryColor: '#fefefe',
+                tertiaryColor: '#d4af37',
+                background: '#fefefe',
+                mainBkg: '#f5f5dc',
+                secondBkg: '#d4af37',
+                tertiaryBkg: '#fefefe',
+                nodeBkg: '#f5f5dc',
+                nodeTextColor: '#3c2f2f',
+                edgeLabelBackground: '#fefefe',
+                clusterBkg: '#f5f5dc',
+                clusterBorder: '#6f4e37'
+            },
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20
+            },
+            fontFamily: 'Inter, sans-serif',
+            fontSize: 14
+        });
+
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+            const mermaidElement = container.querySelector('.mermaid');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // 触摸相关状态
+            let isTouch = false;
+            let touchStartTime = 0;
+            let initialDistance = 0;
+            let initialScale = 1;
+            let isPinching = false;
+
+            // Zoom controls
+            const zoomInBtn = container.querySelector('.zoom-in');
+            const zoomOutBtn = container.querySelector('.zoom-out');
+            const resetBtn = container.querySelector('.reset-zoom');
+            const fullscreenBtn = container.querySelector('.fullscreen');
+
+            function updateTransform() {
+                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                if (scale > 1) {
+                container.classList.add('zoomed');
+                } else {
+                container.classList.remove('zoomed');
+                }
+
+                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
+
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                scale = Math.min(scale * 1.25, 4);
+                updateTransform();
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                scale = Math.max(scale / 1.25, 0.3);
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                });
+            }
+
+            // Mouse Events
+            mermaidElement.addEventListener('mousedown', (e) => {
+                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                mermaidElement.style.cursor = 'grabbing';
+                updateTransform();
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging && !isTouch) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            // 获取两点之间的距离
+            function getTouchDistance(touch1, touch2) {
+                return Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+                );
+            }
+
+            // Touch Events - 触摸事件处理
+            mermaidElement.addEventListener('touchstart', (e) => {
+                isTouch = true;
+                touchStartTime = Date.now();
+
+                if (e.touches.length === 1) {
+                // 单指拖动
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+
+                } else if (e.touches.length === 2) {
+                // 双指缩放
+                isPinching = true;
+                isDragging = false;
+
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                initialDistance = getTouchDistance(touch1, touch2);
+                initialScale = scale;
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging && !isPinching) {
+                // 单指拖动
+                const touch = e.touches[0];
+                translateX = touch.clientX - startX;
+                translateY = touch.clientY - startY;
+                updateTransform();
+
+                } else if (e.touches.length === 2 && isPinching) {
+                // 双指缩放
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const currentDistance = getTouchDistance(touch1, touch2);
+
+                if (initialDistance > 0) {
+                    const newScale = Math.min(Math.max(
+                    initialScale * (currentDistance / initialDistance),
+                    0.3
+                    ), 4);
+                    scale = newScale;
+                    updateTransform();
+                }
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchend', (e) => {
+                // 重置状态
+                if (e.touches.length === 0) {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                // 延迟重置isTouch，避免鼠标事件立即触发
+                setTimeout(() => {
+                    isTouch = false;
+                }, 100);
+                } else if (e.touches.length === 1 && isPinching) {
+                // 从双指变为单指，切换为拖动模式
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+                }
+
+                updateTransform();
+            });
+
+            mermaidElement.addEventListener('touchcancel', (e) => {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                setTimeout(() => {
+                isTouch = false;
+                }, 100);
+
+                updateTransform();
+            });
+
+            // Enhanced wheel zoom with better center point handling
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                // Adjust translation to zoom towards center
+                if (newScale !== scale) {
+                const scaleDiff = newScale / scale;
+                translateX = translateX * scaleDiff;
+                translateY = translateY * scaleDiff;
+                scale = newScale;
+
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+                }
+            });
+
+            // Initialize display
+            updateTransform();
+            });
+        }
+
+        // Initialize diagrams after mermaid renders
+        setTimeout(initializeMermaidControls, 1000);
+
+        // Table of Contents Active Link
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        function updateActiveLink() {
+            let currentScroll = window.scrollY + 100;
+            
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.toc-link[href="#${section.id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const tocFixed = document.querySelector('.toc-fixed');
+        const mainContent = document.querySelector('.main-content');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            tocFixed.classList.toggle('open');
+            mainContent.classList.toggle('toc-open');
+        });
+
+        // Close menu when clicking on a link (mobile)
+        tocLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) {
+                    tocFixed.classList.remove('open');
+                    mainContent.classList.remove('toc-open');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+  
+
+</body></html>
